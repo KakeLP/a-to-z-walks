@@ -1,0 +1,20 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+use JSON;
+use Template;
+
+my %tt_vars;
+
+# Get the names of the datafiles.
+my @files = glob "site/data/*.geojson";
+@files = map { s'site/''; $_ } @files;
+
+# Turn them into a JSON list.
+$tt_vars{datafiles} = encode_json \@files;
+
+# Regenerate the display HTML.
+my $tt = Template->new( { INCLUDE_PATH => "." } );
+$tt->process( "display.tt", \%tt_vars, "site/display.html" ) || die $tt->error;
