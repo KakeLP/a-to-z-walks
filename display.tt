@@ -42,7 +42,11 @@ function popUp(f,l){
     var out = [];
     if (f.properties){
         for(key in f.properties){
-            out.push(key+": "+f.properties[key]);
+            if ( key == 'flickr' ) {
+                out.push( key + ': <a href="' + f.properties[key] + '">' + f.properties[key] + '</a>');
+            } else {
+                out.push( key + ': ' + f.properties[key] );
+            }
         }
         l.bindPopup(out.join("<br />"));
         if ( odd ) {

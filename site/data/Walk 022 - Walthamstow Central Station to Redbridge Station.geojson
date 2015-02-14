@@ -609,10 +609,11 @@
                 ]
             },
             "properties": {
-                "name": "A-Z Walk 020",
+                "name": "A-Z Walk 022",
                 "start": "Walthamstow Central Station",
                 "end": "Redbridge Station",
-                "date": "Friday 23 August 2013"
+                "date": "Friday 23 August 2013",
+                "flickr": "https://www.flickr.com/photos/kake_pugh/sets/72157635198724503/"
             }
         }
     ]
