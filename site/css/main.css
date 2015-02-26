@@ -15,3 +15,11 @@ body {
 .leaflet-popup-content .walk-name {
   font-weight: bold;
 }
+
+.leaflet-popup-content .walk-start-end {
+  display: inline-block; // to make the ::first-letter stuff work
+}
+
+.leaflet-popup-content .walk-start-end::first-letter {
+  text-transform: uppercase;
+}
