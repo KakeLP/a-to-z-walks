@@ -11,3 +11,7 @@ body {
 #map {
   height: 100%;
 }
+
+.leaflet-popup-content .walk-name {
+  font-weight: bold;
+}

@@ -36,23 +36,22 @@ mq.addTo(m);
 var odd = 0;
 
 function popUp(f,l){
-    var out = [];
-    if (f.properties){
-        for(key in f.properties){
-            if ( key == 'flickr' ) {
-                out.push( key + ': <a href="' + f.properties[key] + '">' + f.properties[key] + '</a>');
-            } else {
-                out.push( key + ': ' + f.properties[key] );
-            }
-        }
-        l.bindPopup(out.join("<br />"));
-        if ( odd ) {
-          l.setStyle( oddStyle );
-          odd = 0;
-        } else {
-          l.setStyle( evenStyle );
-          odd = 1;
-        }
+    var text = '<span class="walk-name">' + f.properties['name']
+             + '</span><br>'
+             + '<span class="walk-start-end">' + f.properties['start']
+             + ' to ' + f.properties['end'] + '</span><br>'
+             + '<span class="walk-date">' + f.properties['date'] + '</span>';
+    if ( f.properties['flickr'] ) {
+        text += '<br><span class="walk-photoset"><a href="'
+              + f.properties['flickr'] + '">Flickr photoset</a></span>';
+    }
+    l.bindPopup( text );
+    if ( odd ) {
+        l.setStyle( oddStyle );
+        odd = 0;
+    } else {
+        l.setStyle( evenStyle );
+        odd = 1;
     }
 }
 
