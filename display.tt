@@ -4,15 +4,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=1024, user-scalable=no">
-    <style>
-      html { height: 100% }
-      body { height: 100%; margin: 0; padding: 0;}
-      #map{ height: 100% }
-    </style>
+
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" />
 <!--[if lte IE 8]>
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.ie.css" />
 <![endif]-->
+    <link rel="stylesheet" href="css/main.css" />
 
 <script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
 <script type="text/javascript" src="js/leaflet.ajax.min.js"></script>
