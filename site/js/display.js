@@ -44,4 +44,6 @@ $( document ).ready( function() {
   var geojsonLayer = new L.GeoJSON.AJAX( datafiles, { onEachFeature: popUp } );
   geojsonLayer.addTo( m );
 
+  $( "#title" ).html( "Walking Across London — Kake’s A–Z Walks" );
+
 } );
