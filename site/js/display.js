@@ -47,3 +47,12 @@ $( document ).ready( function() {
   $( "#title" ).html( "Walking Across London — Kake’s A–Z Walks" );
 
 } );
+
+$( window ).load( function() {
+  // For smaller screens, set the height of the map to the viewport minus the
+  // height of the title box.  Have to do this here rather than in
+  // $( document ).ready() so we can be sure #title's height has been set.
+  if ( $( window ).width() < 640 ) {
+    $( "#map" ).height( $( window ).height() - $( "#title" ).outerHeight() );
+  }
+});
