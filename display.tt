@@ -31,7 +31,7 @@
       <span id="title-text"></span>
       <span id="title-collapser" title="Hide this text">»</span>
     </div>
-    <div id="title-expander">About</div>
+    <div id="title-expander" title="More info">»</div>
     <div id="map"></div>
   </body>
 </html>

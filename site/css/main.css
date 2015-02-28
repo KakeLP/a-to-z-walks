@@ -28,6 +28,9 @@ body {
   background-color: rgba(255, 255, 255, 0.9);
   border-bottom: thin solid gray;
   font: 24px "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+
+#title {
   padding: 10px;
 }
 
@@ -36,20 +39,21 @@ body {
   z-index: 1000;
   top: 0;
   right: 0;
-  border-left: thin solid gray;
-  cursor: pointer;
 }
 
 #title-collapser {
   display: inline-block;
   margin-left: 10px;
+}
+
+#title-expander, #title-collapser {
   border-radius: 4px;
   -webkit-border-radius: 4px;
   box-shadow: 0 1px 7px rgba(0,0,0,0.65);
   cursor: pointer;
 }
 
-#title-collapser:hover {
+#title-collapser:hover, #title-expander:hover {
   background-color: #f4f4f4;
 }
 
@@ -64,6 +68,14 @@ body {
     transform: rotate(-90deg);
     padding: 7px 7px 9px 7px;
   }
+
+  #title-expander {
+    -webkit-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+    padding: 7px 7px 9px 7px;
+    margin-right: 20px;
+  }
 }
 
 @media (min-width: 640px) {
@@ -77,5 +89,14 @@ body {
 
   #title-collapser {
     padding: 0 7px 0 7px;
+  }
+
+  #title-expander {
+    -webkit-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+    margin-top: 10px;
+    margin-right: 10px;
+    padding: 0 9px 4px 9px;
   }
 }
