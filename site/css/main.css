@@ -24,11 +24,46 @@ body {
   text-transform: uppercase;
 }
 
-#title {
+#title, #title-expander {
   background-color: rgba(255, 255, 255, 0.9);
   border-bottom: thin solid gray;
   font: 24px "Helvetica Neue", Arial, Helvetica, sans-serif;
   padding: 10px;
+}
+
+#title-expander {
+  position: absolute;
+  z-index: 1000;
+  top: 0;
+  right: 0;
+  border-left: thin solid gray;
+  cursor: pointer;
+}
+
+#title-collapser {
+  display: inline-block;
+  margin-left: 10px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  box-shadow: 0 1px 7px rgba(0,0,0,0.65);
+  cursor: pointer;
+}
+
+#title-collapser:hover {
+  background-color: #f4f4f4;
+}
+
+@media (max-width: 639px) {
+  #title-text {
+    margin-right: 5px;
+  }
+
+  #title-collapser {
+    -webkit-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    padding: 7px 7px 9px 7px;
+  }
 }
 
 @media (min-width: 640px) {
@@ -38,5 +73,9 @@ body {
     top: 0;
     right: 0;
     border-left: thin solid gray;
+  }
+
+  #title-collapser {
+    padding: 0 7px 0 7px;
   }
 }

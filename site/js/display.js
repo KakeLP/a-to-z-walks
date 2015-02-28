@@ -1,4 +1,6 @@
 $( document ).ready( function() {
+
+  // Set up the map.
   var m = L.map( 'map' ).setView( [51.496775, -0.11652375], 10 );
 
   var mapQuestAttr = 'Tiles Courtesy of <a href="http://www.mapquest.com/">MapQuest</a> &mdash; ';
@@ -11,6 +13,7 @@ $( document ).ready( function() {
   var mq = L.tileLayer( mopt.url, mopt.options );
   mq.addTo( m );
 
+  // Add the GeoJSON data layers.
   function popUp( f, l ) {
     var text = '<span class="walk-name">' + f.properties['name']
              + '</span><br>'
@@ -44,7 +47,19 @@ $( document ).ready( function() {
   var geojsonLayer = new L.GeoJSON.AJAX( datafiles, { onEachFeature: popUp } );
   geojsonLayer.addTo( m );
 
-  $( "#title" ).html( "Walking Across London — Kake’s A–Z Walks" );
+  // Set up the title box.
+  $( "#title-text" ).html( "Walking Across London — Kake’s A–Z Walks" );
+  $( "#title-expander" ).hide();
+  $( "#title-collapser" ).click( function() {
+    $( "#title" ).hide();
+    $( "#title-expander" ).show();
+    $( "#map" ).height( "100%" );
+  } );
+  $( "#title-expander" ).click( function() {
+    $( "#title" ).show();
+    $( "#title-expander" ).hide();
+    recalcMapHeight();
+  } );
 
 } );
 
@@ -52,7 +67,11 @@ $( window ).load( function() {
   // For smaller screens, set the height of the map to the viewport minus the
   // height of the title box.  Have to do this here rather than in
   // $( document ).ready() so we can be sure #title's height has been set.
-  if ( $( window ).width() < 640 ) {
-    $( "#map" ).height( $( window ).height() - $( "#title" ).outerHeight() );
-  }
+  recalcMapHeight();
 });
+
+function recalcMapHeight() {
+    if ( $( window ).width() < 640 ) {
+      $( "#map" ).height( $( window ).height() - $( "#title" ).outerHeight() );
+    }
+}
