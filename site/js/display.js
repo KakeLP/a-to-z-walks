@@ -11,8 +11,6 @@ $( document ).ready( function() {
   var mq = L.tileLayer( mopt.url, mopt.options );
   mq.addTo( m );
 
-  var odd = 0;
-
   function popUp( f, l ) {
     var text = '<span class="walk-name">' + f.properties['name']
              + '</span><br>'
@@ -24,12 +22,10 @@ $( document ).ready( function() {
             + f.properties['flickr'] + '">Flickr photoset</a></span>';
     }
     l.bindPopup( text );
-    if ( odd ) {
+    if ( f.properties['name'].match( /[13579]$/ ) ) {
       l.setStyle( oddStyle );
-      odd = 0;
     } else {
       l.setStyle( evenStyle );
-      odd = 1;
     }
   }
 
